@@ -1,10 +1,11 @@
-package com.example.mvvmwithcleanproject.data.remote
+package com.example.mvvmwithcleanproject.data.dto.remote
 
 import com.example.mvvmwithcleanproject.data.dto.UserDto
 import retrofit2.http.GET
 
 interface ApiService {
 
+
     @GET("users")
-    suspend fun getUser():List<UserDto>
+    fun getUser() : List<UserDto>
 }

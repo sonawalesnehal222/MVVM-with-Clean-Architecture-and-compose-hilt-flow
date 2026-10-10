@@ -1,11 +1,12 @@
 package com.example.mvvmwithcleanproject.domain.model
 
-import com.example.mvvmwithcleanproject.data.dto.AddressDto
+import com.example.mvvmwithcleanproject.data.dto.Address
 
 data class UserModel(
     val id:Int,
     val name:String,
     val email:String,
-    val street : String,
-    val city: String
+    val street :String,
+    val city:String
+
 )

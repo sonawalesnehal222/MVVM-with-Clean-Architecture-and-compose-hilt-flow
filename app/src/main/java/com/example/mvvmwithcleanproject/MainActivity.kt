@@ -28,6 +28,7 @@ import com.example.mvvmwithcleanproject.domain.model.UserModel
 import com.example.mvvmwithcleanproject.presentation.UserViewModel
 import com.example.mvvmwithcleanproject.ui.theme.MVVMWithCleanProjectTheme
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -36,13 +37,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            val userViewModel : UserViewModel = hiltViewModel()
+         val userViewModel: UserViewModel = hiltViewModel()
             val user by userViewModel.user.collectAsState()
+
 
             LaunchedEffect(key1 = Unit) {
 
-                userViewModel.getUser()
+                userViewModel.getUSerData()
+
             }
+
             UserDetailsScreen(
                 user
             )
@@ -50,7 +54,23 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Composable
+fun UserDetailsScreen(user: List<UserModel>){
+    LazyColumn {
+
+        items(user){ userdata ->
+
+            Text("ID : ${userdata.id}")
+            Text("Name : ${userdata.name}")
+
+        }
+
+
+    }
+}
+
+/*@Composable
 fun UserDetailsScreen(user: List<UserModel>) {
 
     Column(
@@ -80,7 +100,7 @@ fun UserDetailsScreen(user: List<UserModel>) {
             }
         }
     }
-}
+}*/
 
 /*
 @Composable

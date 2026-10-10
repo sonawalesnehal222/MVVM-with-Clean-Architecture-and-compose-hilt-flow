@@ -1,6 +1,5 @@
 package com.example.mvvmwithcleanproject.data.mapper
 
-import com.example.mvvmwithcleanproject.data.dto.AddressDto
 import com.example.mvvmwithcleanproject.data.dto.UserDto
 import com.example.mvvmwithcleanproject.domain.model.UserModel
 
@@ -12,5 +11,6 @@ fun UserDto.toDomain() : UserModel{
         email = email,
         street = address.street,
         city = address.city
+
     )
 }
